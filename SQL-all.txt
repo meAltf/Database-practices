@@ -1,0 +1,330 @@
+- to create a database 
+
+create database mysqldb;
+
+
+use mysqldb;
+
+-- ddl - create,alter,drop 
+-- dml - insert,update,delete,truncate,select
+-- constraints - rules which you apply on columns
+-- not null,unique,default,check,primary key,foreign key 
+
+-- primary key - combo of unique and not null / for relationships
+
+-- table - entity
+-- columns - attributes
+-- row - tuples
+
+-- lets create a users table with all rules
+
+create table users(
+id int primary key auto_increment,
+name varchar(20) not null,
+email varchar(30) unique not null,
+age int not null check(age>12),
+city varchar(20) default 'Mumbai'
+);
+
+drop table users;
+
+desc users;
+
+select * from users;
+
+select name,age from users;
+
+select name as firstname ,age as noofyears from users;
+
+-- insert into users(name,email,age,city) values
+-- ('Mitresh','mitr@gmail.com',45,'Banglore'),
+-- ('Vaibhav','vb@hotmail.com',13,'Pune'),
+-- ('Meet','me@hotmail.com',27,'Pune'),
+-- ('Harsh','hr@gmail.com',18,'Hyderabad');
+
+-- row filteration 
+
+-- where  
+
+-- select [*/columns] from table where condition 
+-- relation ops = > < >= <= != 
+-- in not in like
+-- conditional ops - and or
+
+
+select * from users ;
+
+select * from users where city = 'Mumbai';
+
+select * from users where age = 21 or city='Mumbai';
+
+select * from users where age>=20 and age<=30;
+
+select * from users where age between 20 and 30;
+
+select * from users where city in('Mumbai','Banglore','Pune');
+
+select * from users where id not in(4,18,19);
+
+select * from users where name like 'a%h';
+
+
+select * from users where email like '%gmail.com';
+
+-- sorting / order by clause
+
+select * from users 
+where city = 'Mumbai'
+order by age desc;
+
+select * from users 
+limit 1,1 ;
+
+select * from users;
+
+-- to delete a record
+delete from users where id=11;
+
+
+-- to update a record
+update users set age = 17,email='meet@gmail.com' where id=18;
+
+
+-- remove all the data from table
+
+truncate table users;
+
+
+-- relationship of tables
+
+create table departments
+(
+id int primary key auto_increment,
+name varchar(20) not null unique
+);
+
+insert into departments(name) values('Sales'),('HR'),('Marketing'),('IT');
+
+select * from departments;
+
+create table employees
+(
+id int primary key auto_increment,
+name varchar(20) not null,
+salary int ,
+did int ,
+foreign key(did) references departments(id)
+);
+
+create table bank_details(
+id int primary key auto_increment,
+acc_no varchar(20) unique not null,
+bank_name varchar(20) not null,
+eid int,
+foreign key(eid) references employees(id)
+);
+
+insert into bank_details(acc_no,bank_name,eid) values('6756978','IDFC',4);
+
+
+select * from bank_details;
+
+
+
+
+
+
+insert into employees(name,salary,did) values('Komal',23000,3);
+
+insert into employees(name,salary,did) values
+('Saurabh',10000,null);
+
+
+
+select * from employees;
+
+
+ 
+
+
+
+
+
+
+
+
+-- format of a sql select  query
+
+-- select [*,columns] 
+-- from table
+-- joins and relations
+-- where condn/mul-condn
+-- group by
+-- having
+-- order by asc/desc
+-- limit
+
+
+use mysqldb;
+
+
+show tables;
+  
+select * from departments;
+
+select * from employees;
+
+select * from bank_details;
+
+
+-- joins
+
+-- inner join, left join, right join, cross join, equi join 
+
+-- fetch data from multiple tables based on a relation
+
+
+-- select * from table1/left table inner join table2/right table on relationship
+
+select d.name,e.name from 
+departments d inner join employees e
+on d.id = e.did
+where d.name='Marketing';
+
+
+-- left join
+-- select * from table1/left table left join table2/right table on relationship
+
+select * from 
+departments d left join employees e
+on d.id = e.did;
+
+
+select * from 
+departments d right join employees e
+on d.id = e.did;
+
+
+select * from
+departments cross join employees;
+
+
+
+
+select count(*),d.name from departments d,employees e
+where d.id=e.did
+group by d.name
+having d.name='Marketing';
+
+
+
+
+-- get the name and salary of employee who are working in marketing dept and order them
+-- by using salary in desc 
+ 
+ select e.name,e.salary,d.name
+ from employees e inner join departments d
+ on e.did = d.id
+ where d.name = 'Marketing'
+ order by e.salary desc
+ limit 1;
+ 
+ 
+ 
+ -- aggregate functions 
+ -- count(), max(), min(), avg(),sum()
+ 
+ 
+ select * from products;
+ 
+ select count(*) from products;
+ 
+ select max(price) from products;
+ 
+ select min(price) from products;
+ 
+ select avg(price) from products;
+ 
+ select sum(price) from products;
+ 
+ select count(*),max(price) from products;
+ 
+ 
+ -- group by - aggregate function
+ 
+ 
+ select * from users;
+ 
+ select count(*),city from users
+ group by city
+ having count(*) = 2;
+
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+drop table users;
+
+
+select * from users;
+
+-- command to insert basic data
+
+
+
+
+
+-- command to see the data present in the table 
+
+select * from products;
+
+
+
+desc products;
+
+show tables;
+
+
+
+
+
