@@ -1,0 +1,5 @@
+\i 'C:/Users/Alataf Ansari/Downloads/pagila-master/pagila-master/flight_database.sql'
+
+
+--- for large data set to enter in PostgreSQL - use like this path only..
+\i -means, I want to execute this line..
