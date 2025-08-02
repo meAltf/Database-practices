@@ -1,4 +1,4 @@
-- to create a database 
+-- to create a database 
 
 create database mysqldb;
 
