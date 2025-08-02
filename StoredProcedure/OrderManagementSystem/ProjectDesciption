@@ -1,2 +1,10 @@
 Let’s build a complete mini-project using Stored Procedures in MySQL step-by-step.
 We'll create a small system called 📦 “Order Management System” with Customers, Products, and Orders.
+
+📁 Project Overview: Order Management System
+🧱 Tables:
+        1. customers – stores customer info
+        2. products – stores product info
+        3. orders – stores each order
+        4. order_items – items in each order
+        5. logs – for auditing actions
