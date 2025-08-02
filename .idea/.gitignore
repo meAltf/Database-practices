@@ -3,3 +3,51 @@
 /workspace.xml
 # Environment-dependent path to Maven home directory
 /mavenHomeManager.xml
+
+.idea/
+
+/Learning-DSA-Pattern/
+Learning-DSA-Pattern/out/production/
+
+*.class
+*.log
+out/production/
+
+
+# IntelliJ project files |
+*.iml
+*.iws
+*.ipr
+
+# IntelliJ local workspace history/shelf
+/.idea/**/workspace.xml
+/.idea/**/tasks.xml
+/.idea/**/shelf/
+
+# Maven / Gradle directories
+target/
+build/
+
+# Output directory (IntelliJ default)
+out/
+
+# Package cache
+*.jar
+*.war
+*.ear
+
+# VSCode (if you also use it)
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Java crash logs
+hs_err_pid*
+
+# Ignore user-defined compiled pattern folder (replace with your structure if needed)
+**/out/production/
+
+# Ignore test result files (optional)
+*.testlog
