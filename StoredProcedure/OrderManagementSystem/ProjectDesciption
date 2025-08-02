@@ -8,3 +8,10 @@ We'll create a small system called 📦 “Order Management System” with Custo
         3. orders – stores each order
         4. order_items – items in each order
         5. logs – for auditing actions
+
+- Stored Procedure: PlaceOrder
+    - What It Does:
+        1. Inserts a new order
+        2. Adds multiple items
+        3. Decreases product stock
+        4. Logs the action
