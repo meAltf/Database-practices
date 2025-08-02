@@ -6,9 +6,6 @@
 
 .idea/
 
-/Learning-DSA-Pattern/
-Learning-DSA-Pattern/out/production/
-
 *.class
 *.log
 out/production/
