@@ -1,0 +1,39 @@
+✅ Stored Procedure :
+- It is a precompiled block of SQL code (a set of SQL statements) stored in the database and executed whenever we need.
+- It works like a function in programming languages — you define it once, and call it whenever needed.
+
+✅ Create a Stored Procedure in MySQL :
+DELIMITER //
+
+CREATE PROCEDURE procedure_name()
+BEGIN
+ -- SQL statements
+END //
+
+DELIMITER ;
+
+✅ Ex :
+DELIMITER //
+CREATE PROCEDURE GetEmployeesByDept(IN dept_id INT)
+BEGIN
+ SELECT * FROM employees WHERE department_id = dept_id;
+END //
+DELIMITER ;
+
+✅ Call Stored Procedure :
+- CALL GetEmployeesByDept(3);
+- This will return all employees where department_id = 3.
+
+✅ Use Cases (Real-World) :
+- Business Logic | Apply discounts, commissions, or rules before inserting orders.
+- Reusable Code | Fetch sales report, user stats, or summaries repeatedly.
+- Data Validation | Validate input before inserting/updating records.
+- Automation | Run scheduled data cleanups or archiving.
+- Security | Restrict users from accessing raw tables, allow calling only SPs.
+
+✅ Benefits of Stored Procedures :
+- Reusability | Define once, use many times across apps.
+- Performance | Precompiled and cached on server for faster execution.
+- Security | Prevent direct table access; expose only controlled procedures.
+- Maintainability | Central place to change logic without modifying app code.
+- Modularity | Split large tasks into smaller procedures.
